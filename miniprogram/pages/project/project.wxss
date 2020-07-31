@@ -1,0 +1,239 @@
+/* pages/subject/subject.wxss */
+.container{
+  flex: 1;
+  	display: flex;
+  	flex-direction: column;
+ 	box-sizing: border-box;
+}
+.time-group{
+ display: flex;
+	width: 100%;
+	line-height: 80rpx;
+	border-bottom: 1rpx solid #ddd;
+	position: relative;
+	z-index: 2;
+	background: #fff;
+}
+.time-picker{
+width: 100%;
+display: flex;
+flex-direction: column;
+border-left: 1rpx solid #ddd;
+}
+.tab{
+  display: flex;
+  margin-left:20%;
+	width: 60%;
+	line-height: 80rpx;
+	position: relative;
+	z-index: 2;
+	background: #fff;
+}
+.tab text{
+	flex: 1;
+	text-align: center;
+}
+.tab text:after{
+	content: '';
+	display: inline-block;
+	vertical-align: 4rpx;
+	width: 0;
+	height: 0;
+	border-left: 12rpx solid transparent;
+	border-right: 12rpx solid transparent;
+	border-top: 12rpx solid #bbb;
+	margin-left: 8rpx;
+}
+.tab text.active{
+	color: #b0cef0;
+}
+.tab:not(.sort-tab) text.active:after{
+	border-top: 0;
+	border-bottom: 12rpx solid #b0cef0;
+}
+.tab.sort-tab text.active:after{
+	border-top: 12rpx solid #b0cef0;
+}
+.mask{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#000;
+    z-index:9000;
+    opacity:0.5;
+}
+
+.modalDlg{
+    position:fixed;
+    top:250rpx;
+    left:0;
+    right:0;
+    z-index:9999;
+    margin:0 auto;
+    background-color:#fff;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    border-radius: 20rpx;
+}
+.confirm{
+  font-size: 35rpx;
+  margin: 40rpx 0rpx;
+  height: 70rpx;
+background-color: #b0cef0;
+width: 180rpx;
+border-radius: 20rpx;
+justify-content: center;
+align-items: center;
+display: flex;
+}
+.modal{
+  position:fixed;
+    width:500rpx;
+    top:25%;
+    left:0;
+    right:0;
+    z-index:9999;
+    margin:0 auto;
+    background-color:#fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20rpx;
+    align-items:center;
+}
+.alert{
+ line-height: 70rpx;
+	display: flex;
+	padding: 0 40rpx;
+background: #f9f9f9;
+}
+.neirong{
+  display:flex;
+  line-height: 80rpx;
+  justify-content: center;
+  background: #fff;
+	border-top: 1rpx solid #ddd;
+	border-bottom: 1rpx solid #ddd;
+  width: 90%;
+}
+
+.top{
+  height: 82rpx;
+  opacity: 0.8;
+  background: #b0cef0;
+  color:#fff;
+}
+.week{
+display: flex;
+flex-direction: row;
+margin-left:64rpx;
+}
+.top-text{
+  width: 100rpx;
+  height: 82rpx;
+  font-size: 9pt;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+    background: #b0cef0;
+}
+.top-text-active{
+    width: 100rpx;
+  height: 88rpx;
+  font-size: 9pt;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background: #00a0e9;
+}
+.left{
+  width: 35rpx;
+  height: 100rpx;
+  font-size: 9pt;
+  display: flex;
+  margin-left:30rpx;
+}
+.time-pos{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left:-15rpx;
+}
+.time{
+  font-size: 7pt;
+  margin-left:-10rpx;
+}
+.flex-item {
+  width: 95rpx;
+  height: 100rpx;
+}
+
+.kcb-item {
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+.child{
+  display:flex;
+  flex-direction:column;
+}
+.smalltext {
+  text-align: center;
+  width:80rpx;
+  font-size: 6pt;
+  color: #fff;
+  opacity: 0;
+  animation: bd-rise 1s cubic-bezier(0.23, 1, 0.32, 1) 0.75s forwards;
+}
+.scroll {
+  margin-top:160rpx;
+  height: 87%;
+  z-index: 101;
+  position: fixed;
+}
+.t{
+  height: 100%;
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.talk1{
+  display: flex;
+  flex-direction: row;
+  bottom:0;
+  margin-top:40rpx;
+  font-size:20rpx;
+  width: 90%;
+}
+
+.tail1{
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  bottom:180rpx;
+  left: 600rpx;
+  background-color: #00a0e9;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  opacity: 0.5;
+  z-index:999;
+}
+.input{
+  font-size: 25rpx;
+  padding:5rpx 10rpx;
+  border: 1px solid #ddd;
+  border-radius: 10rpx;
+}
+.shuxing{
+  margin-top:18rpx;
+  font-size: 30rpx;
+  width:35%;
+}

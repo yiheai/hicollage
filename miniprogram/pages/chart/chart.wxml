@@ -1,0 +1,120 @@
+<!-- 图表 -->
+<view class="container">
+    <wxs module="filters" src="./../../filter/filter.wxs"></wxs>
+    <!-- 日期 -->
+    <view class='head'>
+        <picker mode="date" fields="month" value="{{date}}" start="1901-09-01" end="3050-09-01"
+                bindchange="bindDateChange">
+            <view class='head-text'>
+                <text>{{date.year}}年</text>
+                <text class='arrow'>{{date.month}}月</text>
+            </view>
+        </picker>
+    </view>
+    <!-- 菜单【支出、收入】 -->
+    <!-- 主体 -->
+    <scroll-view scroll-y class='scrollview'>
+        <view class='main'>
+            <view class='charts'>
+                <view class='chart linechart'>
+                    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas"
+                            bindtouchstart="touchHandlerLineCanvas"></canvas>
+                </view>
+            </view>
+            <view class='divider'></view>
+                <view class='menu-wrapper'>
+        <view class='menu'>
+            <!-- 支出 -->
+            <view class='menu-item'>
+                <view>
+                    <text data-current='0' bindtap='handleChange'>支出</text>
+                </view>
+                <view>
+                    <text data-current='0' bindtap='handleChange'
+                          class='green {{current === 0 ? "bottom_line_green" : ""}}'></text>
+                </view>
+            </view>
+            <!-- 收入 -->
+            <view class='menu-item'>
+                <view>
+                    <text data-current='1' bindtap='handleChange'>收入</text>
+                </view>
+                <view>
+                    <text data-current='1' bindtap='handleChange'
+                          class='red {{current === 1 ? "bottom_line_red" : ""}}'></text>
+                </view>
+            </view>
+        </view>
+    </view>
+            <view class='ranking'>
+                <view class='ranking-head'>
+                    <block wx:if="{{current === 0}}">
+                        <text>支出热榜</text>
+                <view class='ranking-list'>
+                    <view wx:if="{{ranking1.length === 0}}">
+                        本月没有排行, 马上去记录
+                    </view>
+                    <block wx:for="{{ranking1}}" wx:key="{{index}}">
+                        <view class='ranking-list-item'>
+                            <!-- top -->
+                            <view class='ranking-list-top'>
+                                <!-- left -->
+                                <view>
+                                    <image class='icon' src='{{c_out[item.iconSelected].icon}}'></image>
+                                    <text>
+                                        {{item.name}} {{item.len}}笔
+                                        {{filters.toFix(item.money/total1)*100}}%
+                                    </text>
+                                </view>
+                                <!-- right -->
+                                <view>
+                                    <text>{{item.money}}元</text>
+                                </view>
+                            </view>
+                            <!-- bottom -->
+                            <view class='ranking-list-bottom'>
+                                <progress active border-radius="20" color='#5897f3'
+                                          percent='{{item.money/total1*100}}'></progress>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                    </block>
+                    <block wx:elif="{{current === 1}}">
+                        <text>收入热榜</text>
+                                        <view class='ranking-list'>
+                    <view wx:if="{{ranking2.length === 0}}">
+                        本月没有排行, 马上去记录
+                    </view>
+                    <block wx:for="{{ranking2}}" wx:key="{{index}}">
+                        <view class='ranking-list-item'>
+                            <!-- top -->
+                            <view class='ranking-list-top'>
+                                <!-- left -->
+                                <view>
+                                    <image class='icon' src='{{c_in[item.iconSelected].icon}}'></image>
+                              
+                                    <text>
+                                        {{item.name}} {{item.len}}笔
+                                        {{filters.toFix(item.money/total2)*100}}%
+                                    </text>
+                                </view>
+                                <!-- right -->
+                                <view>
+                                    <text style="width:200rpx">{{item.money}}元</text>
+                                </view>
+                            </view>
+                            <!-- bottom -->
+                            <view class='ranking-list-bottom'>
+                                <progress active border-radius="20" color='#5897f3'
+                                          percent='{{item.money/total2*100}}'></progress>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

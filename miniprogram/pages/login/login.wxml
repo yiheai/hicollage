@@ -1,0 +1,29 @@
+<view class="container"> 
+<view class="hn"><image class="hainanu" src="../assets/images/logo.png"></image></view>
+
+<view class="wrapper">
+  <view class="loginform">
+    <view class="control-group">
+    <view class="control">
+    <view class='select'>
+        <input class="input" type="text" bindinput="textInput" value="{{choise}}" placeholder="请选择学校"></input>
+        <view bindtap='listshow' class="tab"><text class="{{showlist? 'active':''}}"></text></view>
+    </view>
+        <scroll-view wx:if="{{showlist}}" class='list-group' scroll-y="true">
+        <cover-view wx:for-index="i" data-i ="{{i}}" bindtap="selected" class='list' wx:for="{{alist}}">
+        <cover-view class='font'>{{item}}</cover-view>
+        </cover-view>
+         </scroll-view>
+      </view>
+      <view class="control">
+        <input wx:if="{{!showlist}}" type="number" class="input" bindinput="useridInput" placeholder="请输入学号"></input>
+      </view>
+      <view class="control">
+        <input wx:if="{{!showlist}}" class="input" type="password" bindinput="passwdInput"  placeholder="请输入密码"></input>
+      </view>
+      <w-button disabled="{{isLoading}}" class="info"><view class="bind" bindtap="bind">绑定</view></w-button>
+    </view>
+  </view>
+</view>
+ <wxc-dialog class="wxc-dialog" title="微信授权" logImage="../../pages/assets/images/logo.png" content="获得您的公开信息(昵称、头像等)\n用于提供课程表和成绩查询服务" logName="HiCollege" bindcancel="onCancel" bindconfirm="onConfirm"></wxc-dialog>
+</view>

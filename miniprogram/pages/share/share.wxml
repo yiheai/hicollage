@@ -1,0 +1,53 @@
+<!--pages/share/share.wxml-->
+<view >
+    <loading wx:if="{{showLoading}}">上传中</loading>
+</view>
+<view  wx:if="{{showModal}}" class="modalDlg"> 
+<view class="content">
+    <scroll-view wx:if='{{show_name}}' class='content-scroll' scroll-y='true'>
+      <block wx:for='{{name}}' wx:for-index='idx'>
+      <view class="file">
+        <view class="file_name">{{item}}</view>
+        <icon type='clear' bindtap='removefile'  data-index="{{idx}}" ></icon>
+      </view>
+      </block>
+    </scroll-view>
+    <view class='btn-func'style="margin-top:{{!show_name? '100rpx':''}}">
+      <button class="btn-img" bindtap='choosefile'>选择文件</button>
+      <button class="btn" bindtap="share" open-type="getUserInfo">上传</button>
+    </view>
+</view>
+ </view>
+ <view class="top">
+<input class="input" type="text" bindinput="textInput" placeholder="搜索你想要的资料"></input>
+</view>
+<view class="container">
+<view wx:for="{{alist}}" wx:for-index="i">
+<view class="list">
+<view class="list1" bindtap="detail" data-i="{{i}}">
+<view class="list_name">{{item.name}}</view>
+<view class="tail">
+<view class="autor">
+上传者：{{item.user.nickName}}</view>
+<view class="time">上传时间：{{item.date}}</view>
+</view>
+</view>
+<view bindtap="download"  data-i="{{i}}" class="download">下载</view>
+<view bindtap="cancel" wx:if="{{showcancel[i]}}" data-i="{{alist[i]._id}}" class="download">删除</view>
+</view>
+<view style="margin-top:-20rpx;margin-bottom:20rpx;width=100%"><progress percent="{{progress}}" active-mode = "forwards" wx:if='{{isDown[i]}}' stroke-width="5"/></view>
+</view>
+</view>
+
+<view class="modal" wx:if="{{show_detail}}">
+<view class="alert">名称</view>
+<view class="neirong">{{detail.name}}</view>
+<view class="alert">上传者</view>
+<view class="neirong">{{detail.user.nickName}}</view>
+<view class="alert">上传时间</view>
+<view class="neirong">{{detail.date}}</view>
+</view>
+<view class="tail1" wx:if="{{show}}">
+<view class="t" bindtap="showCardView">添加</view>
+</view>
+<view class="mask" bindtap="CancelModal" catchtouchmove="preventTouchMove" wx:if="{{showmask}}"></view>

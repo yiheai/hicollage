@@ -1,0 +1,17 @@
+{
+  "name": "score",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "miniprogram-sm-crypto": "^0.1.0",
+    "request-promise": "^4.2.5",
+    "wx-server": "0.0.1",
+    "wx-server-sdk": "^1.8.2"
+  }
+}

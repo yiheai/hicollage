@@ -1,0 +1,14 @@
+<view class='container'>
+  <view class='container-content'>
+    <view class="head">{{news.title}}</view>
+    <view class='content'>
+      <!-- 显示文本 -->
+      <view class="text" wx:if="{{news.content != ''}} && {{news.images.length > 0}}">
+       <rich-text nodes="{{news.content}}"></rich-text>
+        <block wx:for="{{news.images}}" wx:for-index="idx">
+        </block>
+      </view>
+</view>
+</view>
+
+</view>

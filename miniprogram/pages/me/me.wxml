@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="content">
+              <navigator url="{{hid==1? '../message/message':''}}">
+          <view  class="bd">
+<image class="user-photo" src="{{avatarUrl}}"></image>
+<view style="display: flex;flex-direction: column;width:40%">
+<view style="margin:50rpx 0 10rpx 20rpx;font-size:30rpx">{{nickname}}</view>
+<view style="margin:20rpx 0 0 20rpx">{{school}}</view>
+</view>
+<view hidden="{{hid==1? true:false}}" class="login">
+         <view  class="lotype" bindtap="login">登录</view>
+</view>
+    </view>
+    </navigator>
+         <view>
+  <navigator url="../tellus/tellus">
+ <view class="hd" >
+ <image src="https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E5%8F%8D%E9%A6%88.png?sign=d4da6060eac9bf7c7477c1ce7296c41c&t=1591063589" style="width:50rpx;display:flex;margin:25rpx 0 0 10rpx" mode="widthFix"></image>
+<view class="title">信息反馈</view>
+</view>
+</navigator>
+</view>
+    </view>
+</view>

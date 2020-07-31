@@ -1,0 +1,42 @@
+<view class="tail1" wx:if="{{show}}">
+<view class="t"  bindtap="showCardView">添加</view>
+</view>
+<view class="contain">
+<view  wx:if="{{showModal}}" class="modalDlg"> 
+<view class="content">
+  <form bindsubmit="formSubmit">
+    <view class="text-content">
+      <view class='text-area'>
+        <textarea  maxlength='200' name="input-content" type="text" placeholder="说点什么吧~" placeholder-class="holder" value="{{textContent}}" bindblur='getTextAreaContent'></textarea>
+      </view>
+    </view>
+
+
+
+    <view class='btn-func'>
+      <button class="btn" formType='submit' open-type="getUserInfo">发布</button>
+    </view>
+  </form>
+
+</view>
+ </view>
+ <view class="mask" bindtap="CancelModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class='container'>
+<block wx:for='{{topics}}' wx:for-index="idx">
+    <view class='container-content'>
+      <view class='user-info'>
+        <view class="user-name" data-i="{{topics[idx]._id}}" bindtap="cancel1" wx:if="{{showcancel}}">删除</view>
+      </view>
+      <view class='content'>
+        <!-- 显示文本 -->
+        <block wx:if="{{item.content != ''}}">
+                 <text class='content-text'>{{item.content}}</text>
+        </block>
+        
+      </view>
+      <view>
+    </view>
+ </view>
+</block>
+  </view>
+</view>

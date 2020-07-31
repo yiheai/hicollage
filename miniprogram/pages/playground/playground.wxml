@@ -1,0 +1,158 @@
+<view wx:if="{{control}}">
+<view class="tail1" wx:if="{{show}}">
+<view class="t"  bindtap="showCardView">添加</view>
+</view>
+<view class="contain">
+  <view class='chooseMenu'>
+   <view bindtap="select" data-type="学校周边" class="{{types=='学校周边'?'menuItem.active':'menuItem'}}">
+<image class='itemIcon'src='https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E5%AD%A6%E6%A0%A1.png?sign=5a74d3e4e8371ed33522748735b7e0d9&t=1591014041'></image>
+<view class="itemTitle">学校周边</view>
+</view>
+   <view bindtap="select" data-type="失物招领" class="{{types=='失物招领'?'menuItem.active':'menuItem'}}">
+<image class='itemIcon'src='https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86.png?sign=6a82138a8655bc45b94fb17b4a1aee2f&t=1591014026'></image>
+<view class="itemTitle">失物招领</view>
+</view>
+ <view bindtap="select" data-type="二手买卖" class="{{types=='二手买卖'?'menuItem.active':'menuItem'}}">
+<image class='itemIcon'src='https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E4%BA%8C%E6%89%8B%E8%BD%AC%E8%AE%A9.png?sign=99665c1f4c017c636ed3ac6a58f49f02&t=1591174436'></image>
+<view class="itemTitle">二手买卖</view>
+</view>
+</view>
+
+
+<view  wx:if="{{showModal}}" class="modalDlg"> 
+<view class="content">
+  <form bindsubmit="formSubmit">
+    <view class="text-content">
+      <view class='text-area'>
+        <textarea  maxlength='200' name="input-content" type="text" placeholder="说点什么吧~" placeholder-class="holder" value="{{textContent}}" bindblur='getTextAreaContent'></textarea>
+      </view>
+
+    </view>
+    <scroll-view wx:if="{{show_image}}" class="image-group" scroll-x="true">
+      <block wx:for='{{images}}' wx:for-index='idx'>
+      <view>
+        <image src='{{images[idx]}}' data-index="{{idx}}" mode='widthFix' bindtap="previewImg"></image>
+        <icon type='clear' bindtap='removeImg'  data-index="{{idx}}" ></icon>
+      </view>
+      </block>
+    </scroll-view>
+
+<scroll-view style="display: flex;white-space: nowrap;height: 100rpx;"  scroll-x="true">
+    <view  class="type_list" wx:for="{{type_list}}" wx:for-index="i">
+    <view bindtap="selected" data-id="{{i}}" class="{{this_type_id==i?'type.active':'type'}}">{{item}}</view>
+    </view>
+    </scroll-view>
+
+
+    <view class='btn-func'>
+      <button class="btn-img" bindtap='chooseImage'>选择图片</button>
+      <button class="btn" formType='submit' open-type="getUserInfo">发布广场</button>
+    </view>
+  </form>
+
+</view>
+ </view>
+ <view class="mask" bindtap="CancelModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+
+<view class='container'>
+<block wx:for='{{topics}}' wx:for-index="idx">
+    <view class='container-content'>
+      <view class='user-info'>
+        <image class='user-head' src='{{item.user.photo}}' mode='aspectFill'></image>
+        <view class='user-name-time'>
+          <view class='user-name'>{{item.user.name}}</view>
+          <view class='user-publish-time'>{{item.date}}</view>
+        </view>
+        <view style="width:100rpx;display:flex;height:100rpx;font-size:24rpx;color:#333;font-weight:bold;align-items: center;" data-i="{{topics[idx]._id}}" bindtap="cancel1" wx:if="{{showcancel[idx]}}">删除</view>
+      </view>
+      <view class='content'>
+        <!-- 显示文本 -->
+        <block wx:if="{{item.content != ''}} && {{item.images.length > 0}}">
+        <view style="display:flex;flex-direction:column">
+        <text wx:if="{{item.type}}"style="font-size:30rpx;color:#00a0e9">#{{item.type}}</text>
+                 <text class='content-text'>{{item.content}}</text>
+        </view>
+ 
+          <view class='content-scroll'>
+            <image bindtap='imgYu' style="width:28%" class='content-img'data-list="{{item.images}}" data-src="{{dImg}}" wx:for="{{item.images}}" wx:for-item="dImg" src='{{dImg}}' mode='widthFix'></image>
+          </view>
+        </block>
+        
+      </view>
+      <view>
+      <view class="tail">
+       <view class='tail2'data-id="{{item._id}}" data-i='{{idx}}' bindtap='good'>{{isLike[idx]== true ? '已赞':'赞'}}({{like_num[idx]}})</view>
+      <view class='tail2' data-id="{{item._id}}" bindtap='speak'>评论({{item.talk.length}})</view>
+      </view>
+      
+      
+      <view  wx:for="{{item.talk}}" wx:for-index = "inx">
+      <block  wx:if="{{inx<=4}}">
+      <view class='talk-all'>
+      <view class='talk-users'>
+       <image class='talk-user-head' src='{{item.user.photo}}' mode='aspectFill'></image>
+     <view class='talk-user-name-time'>
+          <view class='talk-user-name'>{{item.user.name}}</view>
+          <view class='talk-user-publish-time'>{{item.time}}</view>
+        </view>
+      </view>
+      <view class='talk-text'>{{item.content}}</view>
+      <view class="answer">第{{inx+1}}楼</view>
+      </view>
+      </block>
+
+      <block  wx:if="{{inx>4 && inx < (talk_page[idx]*5+4)}}">
+        <view class='talk-all'>
+      <view class='talk-users'>
+       <image class='talk-user-head' src='{{item.user.photo}}' mode='aspectFill'></image>
+     <view class='talk-user-name-time'>
+          <view class='talk-user-name'>{{item.user.name}}</view>
+          <view class='talk-user-publish-time'>{{item.time}}</view>
+        </view>
+      </view>
+      <view class='talk-text'>{{item.content}}</view>
+      <view class="answer">第{{inx+1}}楼</view>
+      </view>
+      </block>
+      </view>
+<block wx:if="{{(talk_page[idx]*5+4) < (item.talk.length-1)}}">
+      <view class="m" bindtap="more" data-i ="{{idx}}">加载更多</view>
+</block>
+<block wx:elif="{{item.talk.length>5}}">
+      <view class="m" bindtap="cancel" data-i ="{{idx}}">收起</view>
+</block>
+
+      
+
+     
+
+       <view class="talk" wx:if="{{showInput}}">
+    <input focus="{{focus}}" class='input' type='text' placeholder="" confirm-type='send'  bindinput='talkInput'></input>
+    <button  class="confirm"  bindtap="submit">确定</button>
+</view>
+      </view>
+    </view>
+
+</block>
+  </view>
+</view>
+</view>
+
+<view wx:if="{{!control}}">
+<view style="display: flex;flex-direction: column;width: 100%;height: 100%;">
+<block wx:for='{{news}}' wx:for-index="idx">
+  <view style="margin-bottom:40rpx;background-color:white" bindtap='onItemClick' data-Id='{{item._id}}' data-openid='{{item._openid}}'>
+    <view style="display: flex;flex-direction: row;width: 100%;margin: 30rpx 0rpx;">
+     <view class="title" style="{{item.images[0]? '':'width:100%'}}">{{item.title}}</view>
+      <view style=" display: flex;flex-direction: column;margin-right:10rpx;margin-top: 10rpx;width:500rpx;" wx:if='{{item.images[0]}}'>
+          <scroll-view style="display: flex;flex-direction: row;width: 100%;overflow: hidden; white-space: nowrap;" scroll-x='true'>
+              <image style="width: 100%;height: 70px;background-color: #b2b2b2;"  src='{{item.images[0]}}' mode='aspectFill'></image>
+          </scroll-view>
+      </view>
+    </view>
+<view style="font-size:25rpx;color:#b2b2b2;margin: 5rpx 20rpx 20rpx 0rpx;display: flex;flex-direction: row-reverse;">{{item.writer}}     于{{item.time}}编辑</view>
+  </view>
+</block>
+</view>
+</view>

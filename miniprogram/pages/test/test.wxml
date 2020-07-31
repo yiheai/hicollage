@@ -1,0 +1,19 @@
+
+<view class="contain">
+  <view class="table" wx:for="{{test}}">
+  <view style="background: white;" class="buju">
+<view class="alert">考试名称：</view>
+<view class="neirong">{{item.kcmc}}</view>
+</view>
+<view style="background-color:#f7f7f7;height:5rpx"></view>
+  <view style="background: #E6F3F9;" class="buju">
+<view class="alert">考试时间：</view>
+<view class="neirong">{{item.ksqssj}}</view>
+</view>
+<view style="background-color:#f7f7f7;height:5rpx"></view>
+  <view style="background: white;" class="buju">
+<view class="alert">考试地点：</view>
+<view class="neirong">{{item.jsmc}}</view>
+</view>
+  </view>
+</view>

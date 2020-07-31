@@ -1,0 +1,16 @@
+<!--miniprogram/pages/home/home.wxml-->
+<view class='container'>
+<block wx:for='{{news}}' wx:for-index="idx">
+  <view style="margin-bottom:40rpx;background-color:white" bindtap='onItemClick' data-Id='{{item._id}}' data-openid='{{item._openid}}'>
+    <view class='container-content'>
+     <view class="title" style="{{item.images[0]? '':'width:100%'}}">{{item.title}}</view>
+      <view class='content' wx:if='{{item.images[0]}}'>
+          <scroll-view class='content-scroll' scroll-x='true'>
+              <image class='content-img'  src='{{item.images[0]}}' mode='aspectFill'></image>
+          </scroll-view>
+      </view>
+    </view>
+<view class="addition">{{item.writer}}     于{{item.time}}编辑</view>
+  </view>
+</block>
+</view>

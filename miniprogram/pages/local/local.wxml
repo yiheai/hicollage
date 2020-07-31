@@ -1,0 +1,58 @@
+<!--pages/local/local.wxml-->
+<view class="mask" bindtap="CancelModal" catchtouchmove="preventTouchMove" wx:if="{{showmask}}"></view>
+<view class="contain">
+  <view class="tail1">
+<view class="t" bindtap="showCardView">新建</view>
+</view>
+
+
+<view class='maned'>已签到人员</view>
+<view class="buju">
+<scroll-view scroll-y="true" class="ed">
+<block wx:for="{{register}}">
+<view class='container-content'>
+      <view class='user-info'>
+        <image class='user-head' src='{{item.photo}}' mode='aspectFill'></image>
+        <view class='user-name-time'>
+          <view class='user-name'>{{item.nickName}}</view>
+          <view class='user-publish-time'>{{item.time}}</view>
+          <view class='content'>
+          <text class='content-text'>{{item.address}}</text>
+        </view>
+        </view>
+      </view>
+      </view>
+           </block>
+                      </scroll-view>
+           </view>
+    <view class='maned'>未签到人员</view>
+<view class="buju">
+<scroll-view scroll-y="true" class="ed">
+<block wx:for="{{non_register}}">
+<view class='container-content'>
+      <view class='user-info'>
+        <image class='user-head' src='{{item.photo}}' mode='aspectFill'></image>
+        <view class='user-name-time'>
+          <view class='user-name'>{{item.nickName}}</view>
+        </view>
+      </view>
+      </view>
+           </block>
+                      </scroll-view>
+           </view>
+<view bindtap="abandon" style="width:100%; display:flex;padding:20rpx 10rpx;justify-content: center;"><view style="padding:20rpx 40rpx;  border-radius: 30rpx; color:#fff;background-color:#09bb07;">放弃管理员</view></view>
+
+
+<view class="modal"  hidden="{{modalhidden}}">
+<view class="talk1">
+ <text class='shuxing'>签到时长：</text>
+    <input class='input' type='number' placeholder="单位：分钟" confirm-type='send'  bindinput='talkInput1' value='{{inputValue}}'></input>
+        </view>
+ <view class="talk1">
+ <text class='shuxing'>签到范围：</text>
+    <input class='input' type='text' placeholder="有效范围：1-5000（米）" confirm-type='send'  bindinput='talkInput2' value='{{inputValue}}'></input>
+</view>
+  <view class="confirm" bindtap="modalchange">提交</view>
+    </view>
+
+</view>

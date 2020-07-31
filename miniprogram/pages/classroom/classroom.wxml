@@ -1,0 +1,20 @@
+<!--pages/subject/subject.wxml-->
+<view class="container">
+<view class="time-group">
+<picker class='time-picker' mode="multiSelector" bindchange="bindChange1" bindcolumnchange="bindMultiPickerColumnChange"  value="{{multiIndex}}" range="{{time}}"><view class="semester">筛选</view></picker>
+</view>
+
+<view class="mask" bindtap="CancelModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+
+<view class="table">
+  <block wx:for="{{classroom}}">
+      <view class="hd">{{item.jxl}}</view>
+      <view class="buju">
+      <block  wx:for="{{item.jsList}}">
+      <view class="td">{{item.jsmc}}</view>
+      </block>
+    </view>
+  </block>
+</view>
+</view>

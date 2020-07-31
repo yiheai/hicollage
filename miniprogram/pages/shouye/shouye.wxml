@@ -1,0 +1,84 @@
+<!--index.wxml-->
+ <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="../assets/images/more/loading.gif"></image>
+  </view>
+<view class="container"wx:if="{{!remind}}">
+  <swiper class='swiper' autoplay='{{autoplay}}' circular='{{circular}}'>
+    <block  wx:for="{{msgList}}" wx:for-index="index" wx:key="imageURL">
+      <swiper-item style="display:flex;align-items:center;justify-content: center;">
+        <image data-src="{{storage? image_filepath[index]:item.image}}" bindtap="imgYu" bindload="imageLoad" data-index="{{index}}" 
+style="width:{{images[index].width}}rpx; height:{{images[index].height}}rpx;" mode="widthFix" src="{{storage? image_filepath[index]:item.image}}" ></image>
+      </swiper-item>
+    </block>
+  </swiper>
+<view class="integralTips">
+<swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+    <block wx:for="{{msgList}}" wx:for-index="i" wx:key="msgList">
+      <view bindtap="navigate" data-id ="{{item._id}}">
+        <swiper-item>
+          <view class="swiper_item">{{item.title}}</view>
+        </swiper-item>
+      </view>
+    </block>
+  </swiper>
+      </view>
+
+  <view class='chooseMenu'>
+    <view class="menuItem">
+      <view class="item">
+        <navigator url='../classroom/classroom' hover-class='hover' style='height: 100%;'>
+          <image class='itemIcon'src='https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E8%87%AA%E4%B9%A0%E5%AE%A4.png?sign=8a321e79b99f42cdde8b55f14ec276ea&t=1590502047'mode="width"></image>
+          <p class="itemTitle">自习室</p>
+        </navigator>
+      </view>
+    </view>
+    <view class="menuItem">
+      <view class="item">
+        <navigator url='../project/project' hover-class='hover' style='height: 100%;'>
+          <image class='itemIcon'src='https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E8%AF%BE%E8%A1%A8.png?sign=b087dbbbb10aeb2d353c701fb31ef0d2&t=1590502027'mode="width"></image>
+          <p class="itemTitle">课表</p>
+        </navigator>
+      </view>
+    </view>
+    <view class="menuItem">
+      <view class="item">
+        <navigator url='../score/score' style='height: 100%;' hover-class='hover'>
+          <image  class='itemIcon'  src='https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E6%88%90%E7%BB%A9.png?sign=405f0d42e5280b288e3f6032346e42b9&t=1590502060'mode="width"></image>
+          <p class="itemTitle">成绩</p>
+        </navigator>
+      </view>
+    </view>
+    <view class="menuItem">
+      <view class="item" bindtap="local">
+          <image  class='itemIcon'  src="{{show_register? 'https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E7%AD%BE%E5%88%B01.png?sign=f91179ad90e3f4f59cfaaebad1feb1d8&t=1590497651':'https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E7%AD%BE%E5%88%B0.png?sign=7f1cd1f561228f333c352df5fb9ce647&t=1590471696'}}"mode="width"></image>
+          <p class="itemTitle">签到</p>
+      </view>
+    </view>
+<view class="menuItem">
+      <view class="item"  bindtap="share">
+          <image class='itemIcon'src="https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB.png?sign=1877d2dceeafdf5ed38773c179cccd07&t=1590497238"mode="width"></image>
+          <p class="itemTitle">资源共享</p>
+      </view>
+    </view>
+<view class="menuItem">
+      <view class="item"   bindtap="news">
+          <image class='itemIcon'src="https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E8%B5%84%E8%AE%AF%20%E8%93%9D.png?sign=5a9a2b96d579eb5d8849687dfbaee0aa&t=1590497255"mode="width"></image>
+          <p class="itemTitle">每日资讯</p>
+      </view>
+    </view>
+    <view class="menuItem">
+      <view class="item"   bindtap="test">
+          <image class='itemIcon'src="https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E8%80%83%E8%AF%95.png?sign=f550bdca37191431b425fcafb7019b31&t=1591526338"mode="width"></image>
+          <p class="itemTitle">考试安排</p>
+      </view>
+    </view>
+    <view class="menuItem">
+      <view class="item">
+        <navigator url='../catelog/catelog' style='height: 100%;' hover-class='hover'>
+          <image  class='itemIcon'  src='https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E8%B4%A6%E6%9C%AC.png?sign=b284722537b37fa7b0d7616b392efdf6&t=1595077111'mode="width"></image>
+          <p class="itemTitle">个人账本</p>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

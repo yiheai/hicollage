@@ -1,0 +1,21 @@
+<!--pages/welcome/welcome.wxml-->
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="../assets/images/more/loading.gif"></image>
+  </view>
+
+
+  <block wx:else>
+  <image class="plane" src="../assets/images/more/plane.png"></image>
+   <image class="smalltitle" mode="widthFix" src="../assets/images/more/name1.png"></image>
+    <view class="content">
+    <view class="hd" style="transform:rotateZ({{angle}}deg);">
+     <view animation="{{ani}}">
+     <image class="confirm-btn" bindtap='onQuery' src="../assets/images/goin.png" ></image>
+     </view>
+        <image class="wave" src="../assets/images/more/wave1.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="../assets/images/more/wave2.png" mode="aspectFill"></image>
+      </view>
+    </view>
+  </block>
+</view>

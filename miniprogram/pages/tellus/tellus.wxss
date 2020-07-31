@@ -1,0 +1,394 @@
+/* miniprogram/pages/home/home.wxss */
+page{
+  width:100%;
+  height: 100%;
+}
+.contain{
+  	display: flex;
+  	flex-direction: column;
+}
+.menuItem.active{
+	border-bottom:solid 5rpx #394be9d0;
+}
+.itemIcon {
+  width: 60rpx;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60rpx;
+}
+.chooseMenu {
+  width:100%;
+  height: 12%;
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  background-color: white;
+}
+.menuItem {
+  justify-content: center;
+  align-items: center;
+  width: 150rpx;
+  display: flex;
+  height: 120rpx;
+  flex-direction: column;
+}
+.type_list{
+  display:flex;
+  flex-wrap: wrap;
+  margin: 20rpx 0 0 20rpx;
+}
+
+.type{
+  white-space: nowrap;
+  padding: 10rpx 20rpx;
+  font-size: 30rpx;
+  display:flex;
+  border-radius: 20rpx;
+}
+.type.active{
+	background: #394be9d0;
+	color: #fff;
+	border-color: #394be9d0;
+}
+.itemTitle {
+  display: block;
+  color: #424141;
+  font-size: 26rpx;
+  margin-top: 5rpx;
+  text-align: center;
+}
+.menu_all{
+    width:100%;
+  height: 120rpx;
+  flex: 1;
+  	display: flex;
+  	flex-direction: column;
+ 	box-sizing: border-box;
+}
+.menu{
+ display: flex;
+	width: 100%;
+	line-height: 80rpx;
+	border-bottom: 1rpx solid #ddd;
+	position: relative;
+	z-index: 2;
+	background: #fff;
+}
+.attr{
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content:center; 
+border-left: 1rpx solid #ddd;
+}
+.attr1{
+font-size:25rpx;
+color: #999;
+height: 70rpx;
+margin-top: -20rpx;
+}
+.icon{
+  width:50rpx;
+  height: 50rpx;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.container-content {
+  display: flex;
+  flex-direction: column;
+  width: 96%;
+margin: 0rpx 0 30rpx 15rpx;
+  background-color: white;
+}
+.container-line{
+  width: 100%;
+  height: 1px;
+  background-color: rgb(107, 106, 106);
+}
+.user-info {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  align-items: center;
+}
+
+
+.user-name-time {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.user-name {
+  font-size: 24rpx;
+  color: #333;
+  font-weight: bold;
+width: 100rpx;
+height: 100rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0rpx 0rpx 0 50rpx;
+}
+
+.user-publish-time {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.content-scroll {
+  width: 100%;
+}
+
+.content-text {
+  font-size: 35rpx;
+  color: #666;
+  margin-left: 10px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  word-wrap: break-word;
+  display: -webkit-box;
+-webkit-line-clamp: 10;
+-webkit-box-orient: vertical;
+}
+
+.content-img {
+  height: 100rpx;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #999;
+}
+
+
+.t{
+  height: 100%;
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.tail{
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 15rpx;
+  font-size: 30rpx;
+  color:#999;
+}
+.talk{
+  width: 105%;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom:0;
+  background-color: white;
+  height: 100rpx;
+  font-size: 30rpx;
+  margin-left: -35rpx;
+}
+.input{
+  width: 520rpx;
+  margin-left: 20rpx;
+  margin-top: 25rpx;
+  margin-bottom: 20rpx;
+  border-bottom: solid 1px #7e7d7d;
+}
+.confirm{
+  font-size: 30rpx;
+    margin-top: 10rpx;
+  margin-right: 70rpx;
+  height: 80rpx;
+}
+button::after {
+  border: none;
+}
+.talk-all{
+  margin-top:40rpx;
+  height: 120rpx;
+  border-top: solid 1px #d3d3d3;
+}
+.talk-users{
+  margin-top:20rpx;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+.talk-user-head {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.talk-user-name-time {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 5px;
+}
+
+.talk-user-name {
+  font-size: 20rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.talk-user-publish-time {
+  font-size: 15rpx;
+  color: #999;
+}
+
+.answer{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 80rpx;
+  font-size: 24rpx;
+  color: #666;
+  
+}
+.talk-text {
+  font-size: 20rpx;
+  color: #666;
+  margin-left: 30px;
+  margin-top:10rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  word-wrap: break-word;
+  display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+}
+.m{
+  display: flex;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 120rpx;
+}
+.tail1{
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  bottom:180rpx;
+  left: 600rpx;
+  background-color: #00a0e9;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  opacity: 0.5;
+  z-index:999;
+}
+.mask{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#000;
+    z-index:9000;
+    opacity:0.5;
+}
+/* miniprogram/pages/publish/publish.wxss */
+
+.content {
+  margin: 20rpx 0 0rpx 0rpx;
+  width: 90%;
+  height: 100rpx;
+}
+
+textarea {
+  padding: 25rpx 0;
+  width: auto;
+  font-size: 26rpx;
+  height: 300rpx;
+}
+
+.text-content {
+  background-color: #f3efef;
+  padding: 0 25rpx;
+}
+
+.image-group {
+  margin-top:20rpx;
+  display: flex;
+  white-space: nowrap;
+  height: 120rpx;
+  
+}
+
+.image-group view{
+  display: inline-block;
+  flex-direction: row;
+  width: 150rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  
+}
+
+.image-group view image{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.image-group view icon{
+  display: inline-block;
+  vertical-align: top;
+  position: absolute
+}
+.btn-func {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  position: absolute;
+  align-items: center;
+}
+.btn-img {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(113, 98, 250);
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 50px;
+}
+.modalDlg{
+    position:fixed;
+    height: 580rpx;
+    width:600rpx;
+    top:250rpx;
+    left:0;
+    right:0;
+    z-index:9999;
+    margin:0 auto;
+    background-color:#fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20rpx;
+    align-items:center;
+}
+
+.btn {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #00a0e9;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 50px;
+  margin-top: 20px;
+}

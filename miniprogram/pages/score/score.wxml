@@ -1,0 +1,51 @@
+<view class="container">
+<view class="time-group">
+<picker class='time-picker' mode="selector" bindchange="bindChange1" bindtap='pickerTap1' value="{{multiIndex1}}" range="{{multiArray1}}"><view class="semester">学期</view></picker>
+</view>
+<view class="mask" bindtap="CancelModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+<view class="table">
+<view class="tm bg-w">
+  <view class="tr bg-w">
+    <view class="th">名称</view>
+    <view class="th">成绩</view>
+    <view class="th">类别</view>
+    <view class="th">学分</view>
+  </view>
+  <view class="more1">{{this_semester}}</view>
+  <view class="more2">绩点{{avg_score}}</view>
+  </view>
+  <block wx:for="{{score}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}" bindtap="showCardView" data-index="{{index}}">
+      <view class="td">{{item.kcmc}}</view>
+      <view class="td">{{item.zcj}}</view>
+      <view class="td">{{item.kclbmc}}</view>
+      <view class="td">{{item.xf}}</view>
+    </view>
+    <view class="tr" wx:else bindtap="showCardView" data-index="{{index}}">
+      <view class="td">{{item.kcmc}}</view>
+      <view class="td">{{item.zcj}}</view>
+      <view class="td">{{item.kclbmc}}</view>
+      <view class="td">{{item.xf}}</view>
+    </view>
+  </block>
+</view>
+
+
+<view class="modalDlg" wx:if="{{showModal}}">
+<view class="buju">
+<view class="alert">课程名称：</view>
+<view class="neirong">{{kcmc}}</view>
+<view class="alert">课程类别：</view>
+<view class="neirong">{{kclbmc}}</view>
+<view class="alert">课程性质：</view>
+<view class="neirong">{{kcxzmc}}</view>
+<view class="alert">考试性质：</view>
+<view class="neirong">{{ksxzmc}}</view>
+<view class="alert">学分:</view>
+<view class="neirong">{{xf}}</view>
+
+</view>
+</view>
+</view>
+

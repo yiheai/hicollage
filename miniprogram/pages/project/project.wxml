@@ -1,0 +1,99 @@
+<view class="tail1">
+<view class="t" bindtap="join">添加</view>
+</view>
+<view class="container">
+<view class="modal"  hidden="{{modalhidden}}">
+
+
+<view class="talk1">
+ <text class='shuxing'>课程名称：</text>
+    <input class='input' type='text' placeholder="" confirm-type='send'  bindinput='talkInput1' value='{{inputValue}}'></input>
+        </view>
+
+ <view class="talk1">
+ <text class='shuxing'>上课教师：</text>
+    <input class='input' type='text' placeholder="" confirm-type='send'  bindinput='talkInput2' value='{{inputValue}}'></input>
+     </view>
+        
+<view class="talk1">
+ <text class='shuxing'>上课周次：</text>
+    <input class='input' type='text' placeholder="如1-2,3-10" confirm-type='send'  bindinput='talkInput3' value='{{inputValue}}'></input>
+     </view>
+
+<view class="talk1">
+ <text class='shuxing'>上课时间：</text>
+    <input class='input' type='number' placeholder="如10304(周一三四节)" confirm-type='send'  bindinput='talkInput4' value='{{inputValue}}'></input>
+</view>
+    <view class="talk1">
+ <text class='shuxing'>上课地点：</text>
+    <input class='input' type='text' placeholder="如5-112" confirm-type='send'  bindinput='talkInput5' value='{{inputValue}}'></input>
+        </view>
+        <view class="confirm" bindtap="modalchange">提交</view>
+    </view>
+
+
+<view class="time-group">
+<picker class='time-picker'bindcancel="showpicker" mode="selector" bindchange="bindChange1" bindtap='pickerTap1' value="{{multiIndex1}}" range="{{multiArray1}}"><view class="tab"><text class="{{showpicker==1? 'active':''}}">学期</text></view></picker>
+
+<picker class='time-picker'bindcancel="showpicker" mode="selector" bindchange="bindChange2" bindtap='pickerTap2'value="{{multiIndex2}}" range="{{multiArray2}}"><view class="tab"><text class="{{showpicker==2? 'active':''}}">周次</text></view></picker>
+</view>
+
+
+<view class="mask" bindtap="CancelModal" catchtouchmove="preventTouchMove" wx:if="{{showmask}}"></view>
+
+<view class='top'>
+<view class='week'>
+<view wx:for="{{['一','二','三','四','五','六','日']}}" wx:for-index="i" >
+<view class='{{show_thisday == i ? "top-text-active":"top-text"}}'>
+<view style="display:flex;flex-direction:column;">
+<view style="display:flex;font-size:30rpx;justify-content: center;">周{{item}}</view>
+<view style="display:flex;font-size:25rpx;">{{times[i]}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+<scroll-view scroll-y="true" class="scroll">
+
+  <view style="height:1200rpx;width:730rpx;display:flex;">
+    <view style='background-color: #b0cef0;color:#fff;'>
+      <view wx:for="{{time1}}" class='left'>
+      <view class="time-pos">{{index+1 ==5? '中午':index+1}}
+      <view class="time">{{item}}</view>
+      </view>
+      </view>
+      <view wx:for="{{time2}}" class='left'>
+      <view  class="time-pos">{{index+5}}
+      <view class="time">{{item}}</view>
+      </view>
+    </view>
+    </view>
+    <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}">
+      <view style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:1rpx solid {{'lightgray'}}">
+      </view>
+    </view>
+    <!--课表-->
+    <view wx:for="{{wlist}}">
+      <view class="flex-item kcb-item"  id='0' data-statu="open" data-index="{{index}}"bindtap="showCardView" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.sksj-1)*100+5}}rpx;height:{{item.skcd*100-5}}rpx;background-color:{{colorArrays[index%8]}};opacity: 0;animation: bd-rise 2s cubic-bezier(0.23, 1, 0.32, 1) 0.75s forwards;">
+      <!-- xqj代表星期几上课，sksj是上课时间，skcd上课长度，kcxx课程信息-->
+      <view class="child" style="height:{{item.skcd*90}}rpx">
+        <view class="smalltext">{{item.kcmc}}</view>
+         <view class="smalltext">{{item.jsmc}}</view>
+          <view class="smalltext">{{item.jsxm}}</view>
+          </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="modalDlg" style="width:60%" wx:if="{{showModal}}">
+<view class="alert">课程名称：</view>
+<view class="neirong">{{kcmc}}</view>
+<view class="alert">上课教师：</view>
+<view class="neirong">{{jsxm}}</view>
+<view class="alert">上课周次：</view>
+<view class="neirong">{{kkzc}}</view>
+<view class="alert">上课地点：</view>
+<view class="neirong">{{jsmc}}</view>
+</view>
+</view>
