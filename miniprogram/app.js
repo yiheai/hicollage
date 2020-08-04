@@ -16,6 +16,8 @@ App({
       })
     }
     this.globalData = {
+      StatusBar:'',//用于获取顶部菜单栏的宽度
+      CustomBar:'',//
       token:'',//用于请求强智科技API
       openid: '',//微信身份唯一标识码
       student_id: '',//学号
@@ -125,7 +127,22 @@ App({
         icon: 'https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/sr_5.svg?sign=64f03bbcf93d8fdf596003968aa7564a&t=1595069743'
       }
       ],
-    }
+    },
+    wx.getSystemInfo({
+      success: e => {
+        this.globalData.StatusBar = e.statusBarHeight;
+        let capsule = wx.getMenuButtonBoundingClientRect();
+        if (capsule) {
+          this.globalData.Custom = capsule;
+          this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
+        } else {
+          this.globalData.CustomBar = e.statusBarHeight + 50;
+        }
+        console.log(this.globalData.CustomBar, this.globalData.StatusBar)
+      }, fail: e => {
+        console.log(e)
+      }
+    })
   },
   dateFormat: function (date) {//时间获取
     var year = date.getFullYear()

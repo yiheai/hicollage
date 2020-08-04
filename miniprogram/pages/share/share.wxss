@@ -96,7 +96,9 @@ overflow:hidden;
 .container{
   display: flex;
   flex-direction: column;
-  margin-top: 100rpx;
+  margin-top: 120rpx;
+  box-sizing: unset;
+
 }
 .top{
   background-color: #b0cef0;
@@ -104,6 +106,7 @@ overflow:hidden;
   flex: row;
   position: fixed;
   width: 100%;
+  z-index:100;
 }
 
 .input{
@@ -113,7 +116,7 @@ margin-top: 25rpx;
 margin-bottom: 20rpx;
 border-bottom: solid 1px #7e7d7d;
 background-color: white;
-border-radius: 10px;
+border-radius: 10rpx;
 height: 80rpx;
 padding: 0 20rpx;
 font-size: 35rpx;
@@ -128,31 +131,31 @@ font-size: 35rpx;
 }
 .list1 {
   display: flex;
-  flex-direction: row;
-  width:800rpx;
+  flex-direction: column;
+  width:700rpx;
   margin: 20rpx 0 20rpx 30rpx;
 }
 .list_name{
-width: 300rpx;
+width: 100%;
 align-items: center;
-font-size: 30rpx;
+font-size: 35rpx;
 display: -webkit-box;
 overflow: hidden;
 text-overflow: ellipsis;
 word-wrap: break-word;
 white-space: normal !important;
--webkit-line-clamp: 2;
+-webkit-line-clamp: 1;
 -webkit-box-orient: vertical;
 line-height: 40rpx;
 
 }
 .tail{
   display: flex;
-  flex-direction: column;
-  font-size: 30rpx;
+  flex-direction: row-reverse;
+  font-size: 20rpx;
   color:#999;
-  margin-left:20rpx;
-  width: 300rpx;
+  width: 100%;
+  margin-top:20rpx;
 }
 
 
@@ -178,15 +181,14 @@ line-height: 40rpx;
   z-index:999;
 }
 .autor{
- font-size:30rpx;
+ font-size:25rpx;
  overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
-margin: 0rpx 30rpx 0 -10rpx;
+width: 250rpx;
 }
 .time{
   font-size: 20rpx;
-margin-top: 10rpx;
 }
 .download{
   font-size: 30rpx;

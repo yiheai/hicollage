@@ -1,0 +1,82 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">日志</view></cu-custom>
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-gradual-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v2.0.4</view>
+        <view class="cu-tag line-white">2020/07/25</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.增加记账功能，优化界面显示</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v2.0.3</view>
+        <view class="cu-tag line-white">2020/07/21</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.修复广场若干BUG</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v2.0.2</view>
+        <view class="cu-tag line-white">2020/07/18</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.修复资源分享文件无法打开问题</view>
+        <view>2.修复签到功能无法使用问题</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v2.0.1</view>
+        <view class="cu-tag line-white">2020/07/10</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.增加签到、每日资讯、资源分享功能</view>
+         <view>2.改善运行框架，增加安全性</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.0.3</view>
+        <view class="cu-tag line-white">2020/07/05</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.增加广场功能</view>
+        <view>2.改善若干界面显示</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.0.2</view>
+        <view class="cu-tag line-white">2020/06/01</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.增加自习室功能</view>
+        <view>2.修复课程表无法正常显示课程信息BUG</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.0.1</view>
+        <view class="cu-tag line-white">2020/05/21</view>
+      </view>
+      <view class="margin-top-sm text-content">1.0版本上线</view>
+    </view>
+  </view>
+</view>

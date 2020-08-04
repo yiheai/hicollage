@@ -1,24 +1,48 @@
-<view class="container">
-    <view class="content">
-              <navigator url="{{hid==1? '../message/message':''}}">
-          <view  class="bd">
-<image class="user-photo" src="{{avatarUrl}}"></image>
-<view style="display: flex;flex-direction: column;width:40%">
-<view style="margin:50rpx 0 10rpx 20rpx;font-size:30rpx">{{nickname}}</view>
+            <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+     <image class="user-photo" src="{{avatarUrl}}"></image>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view style="margin:50rpx 0 10rpx 20rpx;font-size:30rpx">{{nickname}}</view>
 <view style="margin:20rpx 0 0 20rpx">{{school}}</view>
-</view>
-<view hidden="{{hid==1? true:false}}" class="login">
-         <view  class="lotype" bindtap="login">登录</view>
-</view>
     </view>
-    </navigator>
+    <view class="flex flex-sub flex-direction">
+      <view hidden="{{hid==1? true:false}}" class="login">
+         <button class="bg-blue" style="font-size: 30rpx;" bindtap="login">登录</button>
+</view>
+      <view hidden="{{hid==0? true:false}}"class="login">
+      <button class="bg-blue" style="font-size: 30rpx;" bindtap="exit">退出登录</button>
+      </view>
+    </view>
+  </view>
          <view>
-  <navigator url="../tellus/tellus">
- <view class="hd" >
- <image src="https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E5%8F%8D%E9%A6%88.png?sign=d4da6060eac9bf7c7477c1ce7296c41c&t=1591063589" style="width:50rpx;display:flex;margin:25rpx 0 0 10rpx" mode="widthFix"></image>
-<view class="title">信息反馈</view>
-</view>
-</navigator>
-</view>
-    </view>
-</view>
+           
+ <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <navigator url="{{'../tellus/tellus'}}">
+  <view class="cu-item arrow">
+
+        <view class="hd">
+     <image src="https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/%E5%8F%8D%E9%A6%88.png?sign=d4da6060eac9bf7c7477c1ce7296c41c&t=1591063589" style="width:50rpx;display:flex;margin:25rpx 0 0 10rpx" mode="widthFix"></image>
+        <text class="text-grey title">意见反馈</text>
+        </view>
+      </view>
+                       </navigator>
+                        <navigator url="{{'../update/update'}}">
+  <view class="cu-item arrow">
+
+        <view class="hd">
+        <text style="font-size: 60rpx;margin-top: 35rpx;" class="cuIcon-formfill text-green"></text>
+        <text class="text-grey title">更新日志</text>
+        </view>
+      </view>
+                       </navigator>
+                        <view bindtap="update_data">
+
+        <view class="hd">
+        <text style="font-size: 60rpx;margin-top: 35rpx;" class="cuIcon-refresh text-green"></text>
+        <text class="text-grey title">数据更新</text>
+        </view>
+      </view>
+                       </view>
+    </view>      
+

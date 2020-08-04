@@ -12,9 +12,11 @@
     <view class="th">类别</view>
     <view class="th">学分</view>
   </view>
-  <view class="more1">{{this_semester}}</view>
-  <view class="more2">绩点{{avg_score}}</view>
+  <view class="more">
+  <p1>{{this_semester}}</p1>
+  <p1>绩点{{avg_score}}</p1></view>
   </view>
+  <view class="contain">
   <block wx:for="{{score}}">
     <view class="tr bg-g" wx:if="{{index % 2 == 0}}" bindtap="showCardView" data-index="{{index}}">
       <view class="td">{{item.kcmc}}</view>
@@ -29,23 +31,8 @@
       <view class="td">{{item.xf}}</view>
     </view>
   </block>
-</view>
+  </view>
 
-
-<view class="modalDlg" wx:if="{{showModal}}">
-<view class="buju">
-<view class="alert">课程名称：</view>
-<view class="neirong">{{kcmc}}</view>
-<view class="alert">课程类别：</view>
-<view class="neirong">{{kclbmc}}</view>
-<view class="alert">课程性质：</view>
-<view class="neirong">{{kcxzmc}}</view>
-<view class="alert">考试性质：</view>
-<view class="neirong">{{ksxzmc}}</view>
-<view class="alert">学分:</view>
-<view class="neirong">{{xf}}</view>
-
-</view>
 </view>
 </view>
 

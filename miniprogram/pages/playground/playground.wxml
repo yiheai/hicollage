@@ -1,6 +1,5 @@
-<view wx:if="{{control}}">
 <view class="tail1" wx:if="{{show}}">
-<view class="t"  bindtap="showCardView">添加</view>
+<view class="t"  bindtap="showCardView">+</view>
 </view>
 <view class="contain">
   <view class='chooseMenu'>
@@ -136,23 +135,4 @@
 
 </block>
   </view>
-</view>
-</view>
-
-<view wx:if="{{!control}}">
-<view style="display: flex;flex-direction: column;width: 100%;height: 100%;">
-<block wx:for='{{news}}' wx:for-index="idx">
-  <view style="margin-bottom:40rpx;background-color:white" bindtap='onItemClick' data-Id='{{item._id}}' data-openid='{{item._openid}}'>
-    <view style="display: flex;flex-direction: row;width: 100%;margin: 30rpx 0rpx;">
-     <view class="title" style="{{item.images[0]? '':'width:100%'}}">{{item.title}}</view>
-      <view style=" display: flex;flex-direction: column;margin-right:10rpx;margin-top: 10rpx;width:500rpx;" wx:if='{{item.images[0]}}'>
-          <scroll-view style="display: flex;flex-direction: row;width: 100%;overflow: hidden; white-space: nowrap;" scroll-x='true'>
-              <image style="width: 100%;height: 70px;background-color: #b2b2b2;"  src='{{item.images[0]}}' mode='aspectFill'></image>
-          </scroll-view>
-      </view>
-    </view>
-<view style="font-size:25rpx;color:#b2b2b2;margin: 5rpx 20rpx 20rpx 0rpx;display: flex;flex-direction: row-reverse;">{{item.writer}}     于{{item.time}}编辑</view>
-  </view>
-</block>
-</view>
 </view>

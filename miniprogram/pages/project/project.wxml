@@ -1,10 +1,10 @@
 <view class="tail1">
-<view class="t" bindtap="join">添加</view>
+<view class="t" bindtap="join">+</view>
 </view>
 <view class="container">
+
+
 <view class="modal"  hidden="{{modalhidden}}">
-
-
 <view class="talk1">
  <text class='shuxing'>课程名称：</text>
     <input class='input' type='text' placeholder="" confirm-type='send'  bindinput='talkInput1' value='{{inputValue}}'></input>
@@ -41,7 +41,7 @@
 
 <view class="mask" bindtap="CancelModal" catchtouchmove="preventTouchMove" wx:if="{{showmask}}"></view>
 
-<view class='top'>
+<view class='top bg-gradual-blue'>
 <view class='week'>
 <view wx:for="{{['一','二','三','四','五','六','日']}}" wx:for-index="i" >
 <view class='{{show_thisday == i ? "top-text-active":"top-text"}}'>
@@ -74,7 +74,7 @@
     </view>
     <!--课表-->
     <view wx:for="{{wlist}}">
-      <view class="flex-item kcb-item"  id='0' data-statu="open" data-index="{{index}}"bindtap="showCardView" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.sksj-1)*100+5}}rpx;height:{{item.skcd*100-5}}rpx;background-color:{{colorArrays[index%8]}};opacity: 0;animation: bd-rise 2s cubic-bezier(0.23, 1, 0.32, 1) 0.75s forwards;">
+      <view class="flex-item kcb-item"  id='0' data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.sksj-1)*100+5}}rpx;height:{{item.skcd*100-5}}rpx;background-color:{{colorArrays[index%8]}};opacity: 0;animation: bd-rise 2s cubic-bezier(0.23, 1, 0.32, 1) 0.75s forwards;">
       <!-- xqj代表星期几上课，sksj是上课时间，skcd上课长度，kcxx课程信息-->
       <view class="child" style="height:{{item.skcd*90}}rpx">
         <view class="smalltext">{{item.kcmc}}</view>
@@ -85,15 +85,4 @@
     </view>
   </view>
 </scroll-view>
-
-<view class="modalDlg" style="width:60%" wx:if="{{showModal}}">
-<view class="alert">课程名称：</view>
-<view class="neirong">{{kcmc}}</view>
-<view class="alert">上课教师：</view>
-<view class="neirong">{{jsxm}}</view>
-<view class="alert">上课周次：</view>
-<view class="neirong">{{kkzc}}</view>
-<view class="alert">上课地点：</view>
-<view class="neirong">{{jsmc}}</view>
-</view>
 </view>

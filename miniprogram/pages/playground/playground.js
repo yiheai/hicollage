@@ -85,14 +85,6 @@ Page({
 
   onLoad: function (options) {
     var that = this
-    db.collection('control').get({
-      success:function(res){
-        var control = res.data[0].topic
-        that.setData({
-          control:control
-        })
-        console.log(control)
-    if(control){
     if (app.globalData.hid) {
       wx.showLoading({
         title: '加载中',
@@ -180,16 +172,6 @@ Page({
         icon: "none"
       })
     }
-    }else{
-      that.getD();
-      db.collection('news').count().then(res => {
-        that.setData({
-          totalCount: res.total,
-        })
-      })
-    }
-      }
-    })
   },
 
 
@@ -757,61 +739,5 @@ more:function(event){//展开评论
    */
   onShareAppMessage: function () {
 
-  },
-
-
-  
-  /**审核模式 */
-  compare: function (property) {//比较
-    return function (a, b) {
-      var value1 = a[property];
-      var value2 = b[property];
-      return value2 - value1;
-    }
-  },
-  getD: function () {
-    wx.showLoading({
-      title: '加载中',
-    })
-    var that = this
-    db.collection('news').skip((that.data.k) * MAX_LIMIT).limit(MAX_LIMIT).get({
-      success: function (res) {
-        res.data.sort(that.compare("compare"));
-        //console.log(res.data)
-        that.data.news = res.data;
-        for (var i in res.data) {
-          for (var j in res.data[i].images) {
-            if (that.data.news[i].images[j].indexOf("//f") != -1) {
-              that.data.news[i].images[j] = "https:" + that.data.news[i].images[j] + "?x-oss-process=image/resize,m_fill,h_70,w_95"
-              console.log(that.data.news[i].images[j])
-            }
-
-          }
-        }
-        that.setData({
-          news: that.data.news,
-        })
-        console.log(that.data.news)
-        wx.hideLoading()
-      },
-      fail: function (event) {
-        wx.showToast({
-          title: '加载失败，请检查网络',
-          icon: "none"
-        })
-      }
-    })
-  },
-  /**
-   * item 点击
-   */
-  onItemClick: function (event) {
-    var id = event.currentTarget.dataset.id;
-    var openid = app.globalData.openid;
-    //console.log(id);
-    // console.log(openid);
-    wx.navigateTo({
-      url: "../newsdetail/newsdetail?id=" + id + "&openid=" + openid
-    })
   },
 })

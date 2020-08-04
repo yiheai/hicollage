@@ -5,16 +5,17 @@
 	},
 	"setting": {
 		"urlCheck": true,
-		"es6": false,
+		"es6": true,
 		"enhance": true,
 		"postcss": true,
-		"minified": false,
+		"minified": true,
 		"newFeature": true,
 		"coverView": true,
 		"nodeModules": true,
 		"autoAudits": true,
 		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
+		"scopeDataCheck": true,
+		"uglifyFileName": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -162,6 +163,20 @@
 					"id": -1,
 					"name": "pages/chart/chart",
 					"pathName": "pages/chart/chart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/shouye/shouye",
+					"pathName": "pages/shouye/shouye",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/update/update",
+					"pathName": "pages/update/update",
 					"scene": null
 				}
 			]
