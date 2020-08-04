@@ -2,7 +2,7 @@
 <view class="mask" bindtap="CancelModal" catchtouchmove="preventTouchMove" wx:if="{{showmask}}"></view>
 <view class="contain">
   <view class="tail1">
-<view class="t" bindtap="showCardView">新建</view>
+<view class="t" bindtap="showCardView">+</view>
 </view>
 
 
@@ -40,7 +40,7 @@
            </block>
                       </scroll-view>
            </view>
-<view bindtap="abandon" style="width:100%; display:flex;padding:20rpx 10rpx;justify-content: center;"><view style="padding:20rpx 40rpx;  border-radius: 30rpx; color:#fff;background-color:#09bb07;">放弃管理员</view></view>
+<view bindtap="abandon" style="width:100%; display:flex;padding:20rpx 10rpx;justify-content: center;"><button class="bg-green" style="width:250rpx;height:80rpx;font-size:30rpx">放弃管理员</button></view>
 
 
 <view class="modal"  hidden="{{modalhidden}}">

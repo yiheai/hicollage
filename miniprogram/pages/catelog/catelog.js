@@ -104,9 +104,7 @@ Page({
          }).get({
       success:function(res)
       {
-        console.log(res.data.length)
         if(res.data.length!=0){
-          console.log(12323)
           let { list, money } = that.formatData(res.data[0].task);
           that.setData({
             list: list,
@@ -114,9 +112,9 @@ Page({
           })
         }
         else{
-          console.log(32123)
+          console.log("ugly")
           that.setData({
-            list: null,
+            list: [],
             money: 
             {
             getMoney:0,
@@ -125,7 +123,7 @@ Page({
             }
           })
         }
-        console.log(list, money)
+        console.log(that.data.list, money)
       },fail:function(res){
         console.log(1231231,res)
       }

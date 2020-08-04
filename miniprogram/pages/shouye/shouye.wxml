@@ -82,3 +82,4 @@ style="width:{{images[index].width}}rpx; height:{{images[index].height}}rpx;" mo
     </view>
   </view>
 </view>
+

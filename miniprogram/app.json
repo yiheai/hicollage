@@ -12,12 +12,12 @@
     "pages/news/news",
     "pages/newsdetail/newsdetail",
     "pages/login/login",
-    "pages/message/message",
     "pages/tellus/tellus",
     "pages/test/test",
     "pages/catelog/catelog",
     "pages/addition/addition",
-    "pages/chart/chart"
+    "pages/chart/chart",
+    "pages/update/update"
   ],
   "window": {
    "backgroundTextStyle": "dark",
@@ -25,32 +25,35 @@
   "navigationBarTitleText": "HiCollege",
   "navigationBarTextStyle": "black"
   },
-  "tabBar": {
-    "color": "#00000",
-    "selectedColor": "#11cd6e",
-    "borderStyle": "black",
-    "position": "bottom",
-    "list": [
-      {
-        "pagePath": "pages/shouye/shouye",
-        "text": "主页",
-        "iconPath": "./pages/assets/images/icons/主页.png",
-        "selectedIconPath": "./pages/assets/images/icons/主页1.png"
-      },
-      {
-        "pagePath": "pages/playground/playground",
-        "text": "广场",
-        "iconPath": "./pages/assets/images/icons/广场.png",
-        "selectedIconPath": "./pages/assets/images/icons/广场1.png"
-      },
-      {
-        "pagePath": "pages/me/me",
-        "text": "我的",
-        "iconPath": "./pages/assets/images/icons/用户.png",
-        "selectedIconPath": "./pages/assets/images/icons/用户1.png"
-      }
-    ]
-  },
+    "usingComponents": {
+      "cu-custom": "/colorui/components/cu-custom"
+    },
+    "tabBar": {
+      "color": "#00000",
+      "selectedColor": "#11cd6e",
+      "borderStyle": "black",
+      "position": "bottom",
+      "list": [
+        {
+          "pagePath": "pages/shouye/shouye",
+          "text": "主页",
+          "iconPath": "./pages/assets/images/icons/主页.png",
+          "selectedIconPath": "./pages/assets/images/icons/主页1.png"
+        },
+        {
+          "pagePath": "pages/playground/playground",
+          "text": "广场",
+          "iconPath": "./pages/assets/images/icons/广场.png",
+          "selectedIconPath": "./pages/assets/images/icons/广场1.png"
+        },
+        {
+          "pagePath": "pages/me/me",
+          "text": "我的",
+          "iconPath": "./pages/assets/images/icons/用户.png",
+          "selectedIconPath": "./pages/assets/images/icons/用户1.png"
+        }
+      ]
+    },
  "permission": {
   "scope.userLocation": {
     "desc": "你的位置信息将用于小程序位置接口的效果展示"

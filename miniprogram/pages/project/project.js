@@ -9,41 +9,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    course:[],
-    showModal: false,//添加课表的悬浮窗口控制
     colorArrays: ["#85B8CF", "#90C652", "#e0e725", "#FC9F9D", "#0A9A84", "#61BC69", "#12AEF3", "#E29AAD"],//课表的颜色库
     multiArray1: [],//存放学期变量
     multiIndex1: [],//存放选中的学期索引值
     multiArray2: [],//存放周次变量
     multiIndex2: [],//存放选中的周次索引值
-    modalhidden: true,//详细信息悬浮窗口
     id:"",
     wlist: [//课表变量数组
     ],
     time1:['07:40','08:35','09:45','10:40',''],//上午时间
     time2:['14:40', '15:35', '16:30', '17.25', '19:30', '20:25', '21:20'],//下午时间
     times:[],
-    runyue:[1,3,5,7,8,10,12],
-    pinyue:[4,6,9,11],
-    show_thisday:null,
-    showmask:false
+    runyue:[1,3,5,7,8,10,12],//闰月数组
+    pinyue:[4,6,9,11],//平月数组
+    show_thisday:null,//高亮显示当前的一天
+    showmask:false,//遮罩层显示
+    modalhidden: true,//自定义选框隐藏
   },
 
-
-  showCardView:function(event){//详细信息悬浮窗口
-    var that = this
-   // console.log(that.data.course, that.data.course[event.currentTarget.dataset.index]['kcmc'])
-    that.setData({
-      showModal: true,
-      showmask:true,
-      kcmc: that.data.course[event.currentTarget.dataset.index]['kcmc'],//课程名称
-      jsxm: that.data.course[event.currentTarget.dataset.index]['jsxm'],//教师姓名
-      jsmc: that.data.course[event.currentTarget.dataset.index]['jsmc'],//教室名称
-      kkzc: that.data.course[event.currentTarget.dataset.index]['kkzc'],//上课周次
-      wid: that.data.course[event.currentTarget.dataset.index]['kcmc'].length//课程名称的长度
-    })
-    
-  },
 
   showpicker:function(){//picker窗口活动初始化
     this.setData({
@@ -52,9 +35,8 @@ Page({
   },
   CancelModal: function () {//遮挡窗口初始化
     this.setData({
-      showModal: false,
       showmask:false,
-      modalhidden: true
+      modalhidden: true,
     })
   },
   deal_course() {//对获取的course进行处理
@@ -371,8 +353,8 @@ var that = this
   
   join: function () {//显示自定义模块
     this.setData({
-      modalhidden: false,
       showmask: true,
+      modalhidden:false,
     })
   },
 
@@ -438,8 +420,8 @@ var that = this
 
     
     that.setData({//隐藏自定义模块
-      modalhidden: true,
       showmask: false,
+      modalhidden: true,
     })
 
     db.collection('user').doc(app.globalData.id).update({//存入数据库

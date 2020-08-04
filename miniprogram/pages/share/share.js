@@ -23,9 +23,11 @@ Page({
     show_name:false,
     showLoading:false,
     isDown:[],
-    progress:null
+    progress:null,
+    pic: ['https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/ppt.png?sign=0218c19337e982514d9a8a2bac42fe74&t=1596286493','https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/jpg.png?sign=b772ecd98c3e593bac133c267883c353&t=1596286756',
+'https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/docx.png?sign=19c24528688fd86451a1b991543f169d&t=1596286817',
+'https://6861-hainanu-3ozvd-1300460648.tcb.qcloud.la/zip%20(1).png?sign=554662de44b02b3c7c2d406a91739376&t=1596286853',]//ppt,jpg,docx,zip
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -428,7 +430,45 @@ show:function(){//加载页面
   onPullDownRefresh: function () {
 
   },
+  // ListTouch触摸开始
+  ListTouchStart(e) {
+    this.setData({
+      ListTouchStart: e.touches[0].pageX
+    })
+  },
 
+  // ListTouch计算方向
+  ListTouchMove(e) {
+    this.setData({
+      ListTouchDirection: e.touches[0].pageX - this.data.ListTouchStart > 0 ? 'right' : 'left'
+    })
+  },
+
+  // ListTouch计算滚动
+  ListTouchEnd(e) {
+    if (this.data.ListTouchDirection == 'left') {
+      this.setData({
+        modalName: e.currentTarget.dataset.target
+      })
+    } else {
+      this.setData({
+        modalName: null
+      })
+    }
+    this.setData({
+      ListTouchDirection: null
+    })
+  },
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */

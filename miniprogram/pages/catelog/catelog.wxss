@@ -62,7 +62,7 @@
     width: 60px;
     height: 60px;
     text-align: center;
-    line-height: 50px;
+  line-height: 65px;
     font-size: 60px;
     box-shadow: 3px 3px 3px #ccc;
     color: #ccc;

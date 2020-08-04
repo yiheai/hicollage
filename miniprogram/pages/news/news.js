@@ -65,7 +65,6 @@ Page({
                 that.setData({
                   news: that.data.news,
                 })
-                console.log(that.data.news)
                 wx.hideLoading()
               },
               fail: function (event) {

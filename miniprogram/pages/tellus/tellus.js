@@ -1,6 +1,6 @@
 var that
 const app = getApp()
-const MAX_LIMIT = 5;
+const MAX_LIMIT = 5;//每次显示5个数据
 const db = wx.cloud.database({
   env: 'hainanu-3ozvd'
 })
@@ -10,28 +10,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    content: '',
-    images: [],
-    user: {},
-    isLike: [],
-    totalCount: 0,
-    topics: {},
-    modalhidden: true,
+    content: '',//反馈的内容
+    images: [],//反馈的图片
+    isLike: [],//点赞数
+    topics: {},//反馈的所有信息
     showModal: false,
-    showInput: false,
-    focus: false,
-    showcancel: [],
-    i: 1,
-    j: 1,
     show: 0,
   },
 
-  CancelModal: function () {//隐藏发布广场
+  CancelModal: function () {//隐藏发布信息
     this.setData({
       showModal: false
     })
   },
-  showCardView: function () {//显示发布广场
+  showCardView: function () {//显示发布信息
     this.setData({
       showModal: true
     })
@@ -43,6 +35,7 @@ Page({
   onLoad: function (options) {
     var that = this
     if (app.globalData.hid) {
+      //获得数据库的反馈信息
       db.collection('tellus').count().then(res => {
         that.setData({
           totalCount: res.total,
@@ -58,16 +51,9 @@ Page({
         db.collection('tellus').skip((that.data.i - 2) * MAX_LIMIT).get({
           success: function (res) {
             res.data.sort(that.compare("compare"));
-            console.log(res.data)
             that.data.topics = res.data;
             that.setData({
               topics: that.data.topics,
-            })
-          },
-          fail: function (event) {
-            wx.showToast({
-              title: '加载失败，请检查网络',
-              icon: "none"
             })
           }
         })
@@ -93,7 +79,7 @@ Page({
     that.data.content = event.detail.value;
   },
 
-  cancel1: function (event) {//删除广场
+  cancel1: function (event) {//删除反馈
     var that = this
     var i = event.currentTarget.dataset.i;
     wx.showModal({
@@ -130,6 +116,7 @@ Page({
       })
     }
     else {
+      //获得用户头像信息
       wx.getUserInfo({
         success: function (res) {
           that.data.user = res.userInfo;

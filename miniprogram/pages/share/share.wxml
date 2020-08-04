@@ -1,7 +1,5 @@
 <!--pages/share/share.wxml-->
-<view >
-    <loading wx:if="{{showLoading}}">上传中</loading>
-</view>
+<loading wx:if="{{showLoading}}">上传中</loading>
 <view  wx:if="{{showModal}}" class="modalDlg"> 
 <view class="content">
     <scroll-view wx:if='{{show_name}}' class='content-scroll' scroll-y='true'>
@@ -18,22 +16,46 @@
     </view>
 </view>
  </view>
- <view class="top">
-<input class="input" type="text" bindinput="textInput" placeholder="搜索你想要的资料"></input>
-</view>
-<view class="container">
-<view wx:for="{{alist}}" wx:for-index="i">
+
+ <view class="cu-bar bg-red search top">
+    <view class="search-form radius">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索你想要的资料"  bindinput="textInput"></input>
+    </view>
+  </view>
+<view class="container cu-list menu-avatar">
+<view  wx:if="{{!showcancel[i]}}" class="cu-item {{modalName=='move-box-'+ i?'move-cur1':''}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{i}}" wx:for="{{alist}}" wx:for-index="i">
+
 <view class="list">
+ <image class="cu-avatar round lg" style="width:80rpx;height:80rpx"  src="{{pic[item.type]}};"> </image>
 <view class="list1" bindtap="detail" data-i="{{i}}">
 <view class="list_name">{{item.name}}</view>
 <view class="tail">
 <view class="autor">
 上传者：{{item.user.nickName}}</view>
-<view class="time">上传时间：{{item.date}}</view>
 </view>
 </view>
-<view bindtap="download"  data-i="{{i}}" class="download">下载</view>
-<view bindtap="cancel" wx:if="{{showcancel[i]}}" data-i="{{alist[i]._id}}" class="download">删除</view>
+      <view class="move1">
+        <view bindtap="download"  data-i="{{i}}" class="bg-blue">下载</view>
+      </view>
+</view>
+<view style="margin-top:-20rpx;margin-bottom:20rpx;width=100%"><progress percent="{{progress}}" active-mode = "forwards" wx:if='{{isDown[i]}}' stroke-width="5"/></view>
+</view>
+
+<view  wx:if="{{showcancel[i]}}" class="cu-item {{modalName=='move-box-'+ i?'move-cur':''}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{i}}" wx:for="{{alist}}" wx:for-index="i">
+<view class="list">
+ <image class="cu-avatar round lg" style="width:80rpx;height:80rpx"  src="{{pic[item.type]}};"> </image>
+<view class="list1" bindtap="detail" data-i="{{i}}">
+<view class="list_name">{{item.name}}</view>
+<view class="tail">
+<view class="autor">
+上传者：{{item.user.nickName}}</view>
+</view>
+</view>
+      <view class="move">
+        <view bindtap="download"  data-i="{{i}}" class="bg-blue">下载</view>
+        <view bindtap="cancel" data-i="{{alist[i]._id}}"class="bg-red">删除</view>
+      </view>
 </view>
 <view style="margin-top:-20rpx;margin-bottom:20rpx;width=100%"><progress percent="{{progress}}" active-mode = "forwards" wx:if='{{isDown[i]}}' stroke-width="5"/></view>
 </view>

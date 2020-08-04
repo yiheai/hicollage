@@ -71,11 +71,11 @@ margin-left: 20rpx;
 }
 
 .itemIcon {
-  width: 80rpx;
+  width: 50rpx;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 80rpx;
+  height: 50rpx;
 }
 
 .itemTitle {

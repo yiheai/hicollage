@@ -4,32 +4,11 @@ Page({
   /**
    * 页面的初始数据
    */
-  showModal: false,
   data: {
     multiArray1: [],//学期picker值
     multiIndex1: [],//学期picker索引值
     xf_course: ["公共基础课", "学科基础课", "实践教学环节", "人文通识经典课", "专业选修课", "专业必修课", "专业课"],//显示需要计算学分的科目
     this_semester:'所有学期'//当前显示学期
-  },
-
-  showCardView: function (event) {//获取点击获取详情的值
-    var that = this
-    that.setData({
-      showModal: true,
-      kcmc: that.data.score[event.currentTarget.dataset.index]['kcmc'],
-      kclbmc: that.data.score[event.currentTarget.dataset.index]['kclbmc'],
-      kcxzmc: that.data.score[event.currentTarget.dataset.index]['kcxzmc'],
-      ksxzmc: that.data.score[event.currentTarget.dataset.index]['ksxzmc'],
-      xf: that.data.score[event.currentTarget.dataset.index]['xf'],
-      wid: that.data.score[event.currentTarget.dataset.index]['kcmc'].length
-    })
-  },
-
-
-  CancelModal: function () {//遮罩层的显示控制
-    this.setData({
-      showModal: false
-    })
   },
 
 

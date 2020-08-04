@@ -31,7 +31,7 @@
         <view class='main'>
             <block wx:if="{{list.length === 0}}">
                 <view>
-                    <text>本月没有记录哦, 马上去消费</text>
+                    <text style="font-size: 35rpx;">本月没有记录哦, 马上去消费</text>
                 </view>
             </block>
             <bill-list data="{{list}}" bindrefresh="refresh"></bill-list>

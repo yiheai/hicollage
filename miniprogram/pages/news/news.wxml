@@ -2,15 +2,25 @@
 <view class='container'>
 <block wx:for='{{news}}' wx:for-index="idx">
   <view style="margin-bottom:40rpx;background-color:white" bindtap='onItemClick' data-Id='{{item._id}}' data-openid='{{item._openid}}'>
-    <view class='container-content'>
+
+    <view class='cu-card article'>
+    <view class="cu-item shadow">
      <view class="title" style="{{item.images[0]? '':'width:100%'}}">{{item.title}}</view>
-      <view class='content' wx:if='{{item.images[0]}}'>
-          <scroll-view class='content-scroll' scroll-x='true'>
-              <image class='content-img'  src='{{item.images[0]}}' mode='aspectFill'></image>
+      <view class='content'>
+          <scroll-view  wx:if='{{item.images[0]}}' class='content-scroll' scroll-x='true'>
+              <image  class='content-img'  src='{{item.images[0]}}' mode='aspectFill'></image>
           </scroll-view>
+          <view class="desc">
+        <view class="text-content"> <rich-text nodes="{{item.content}}"></rich-text></view>
+        <view>
+        <view class="cu-tag bg-red light sm round">{{item.tab[0]}}</view>
+          <view class="cu-tag bg-green light sm round">{{item.tab[1]}}</view>
+        </view>
       </view>
     </view>
 <view class="addition">{{item.writer}}     于{{item.time}}编辑</view>
+  </view>
+  </view>
   </view>
 </block>
 </view>
